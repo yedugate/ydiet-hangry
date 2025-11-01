@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>உணவும் கோபமும்: ஹெபிடோம் ரகசியம்</title>
+    <style>
+        /*
+            CSS Style Sheet: Habitome & Y-Diet
+            Theme: Sattvic, Earthy, and Calm
+            Colors: Using CSS named colors (Sienna, OldLace, DarkSlateGray, etc.)
+        */
+
+        /* === Global & Font Styles === */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans Tamil', 'Latha', sans-serif;
+            line-height: 1.9;
+            background-color: FloralWhite;
+            color: DarkSlateGray;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* === Structure === */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: White;
+            box-shadow: 0 10px 30px Gainsboro;
+        }
+
+        header {
+            width: 100%;
+            height: 250px; /* Fixed height for banner */
+            overflow: hidden;
+        }
+
+        header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the area */
+        }
+
+        main {
+            padding: 20px 40px;
+        }
+
+        footer {
+            background-color: AntiqueWhite;
+            color: DimGray;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            font-size: 0.9em;
+            border-top: 2px solid Tan;
+        }
+
+        /* === Typography === */
+        h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            text-align: center;
+            color: Sienna;
+            text-shadow: 1px 1px 2px AntiqueWhite;
+            margin-top: 10px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: Maroon;
+            border-bottom: 2px solid Tan;
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            color: Peru;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        strong, b {
+            color: SaddleBrown;
+            font-weight: 700;
+        }
+
+        em, i {
+            color: OliveDrab;
+            font-style: italic;
+        }
+
+        .author {
+            text-align: center;
+            font-style: italic;
+            color: SlateGray;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        /* === Dialogue Blockquote === */
+        .dialogue {
+            background-color: LightGoldenRodYellow;
+            border-left: 6px solid DarkGoldenRod;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            font-size: 1.2em;
+            color: DarkSlateGray;
+        }
+
+        .dialogue p {
+            margin: 5px 0;
+        }
+        
+        /* === Highlight Link Style === */
+        .highlight-link {
+            background-color: LightGoldenRodYellow;
+            color: Maroon;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid DarkGoldenRod;
+            font-size: 0.95em;
+        }
+        .highlight-link:hover {
+            background-color: DarkGoldenRod;
+            color: white;
+        }
+
+
+        /* === Tables === */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px Gainsboro;
+        }
+
+        th, td {
+            border: 1px solid BurlyWood;
+            padding: 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: Wheat;
+            color: DarkSlateGray;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) {
+            background-color: OldLace;
+        }
+
+        /* === Mobile Friendly (Responsive) === */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px; /* Adjust base font size */
+            }
+            main {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.7em;
+            }
+            h3 {
+                font-size: 1.4em;
+            }
+
+            /* Responsive Table: Stack rows */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead {
+                display: none; /* Hide desktop headers */
+            }
+
+            tr {
+                border: 1px solid BurlyWood;
+                margin-bottom: 15px;
+            }
+            
+            td {
+                border: none;
+                border-bottom: 1px solid AntiqueWhite;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+
+            td:before {
+                /* Use CSS pseudo-elements for labels */
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                top: 15px; /* Match padding */
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: 700;
+                color: DarkSlateGray;
+            }
+
+            /* Specific labels for each table */
+            .table-triggers td:nth-child(1):before { content: "உணவின் நிலை"; }
+            .table-triggers td:nth-child(2):before { content: "கோபத்திற்கான காரணம்"; }
+
+            .table-swaps td:nth-child(1):before { content: "பழைய பழக்கம்"; }
+            .table-swaps td:nth-child(2):before { content: "புதிய Y-டயட் ஸ்வாப்"; }
+
+        }
+
+        /* === Printable Version === */
+        @media print {
+            body {
+                background-color: White;
+                color: Black;
+                font-family: 'Latha', 'Noto Sans Tamil', serif;
+                font-size: 12pt;
+            }
+            header, footer, .highlight-link {
+                display: none; /* Do not print banner, footer, or link */
+            }
+            main {
+                padding: 0;
+                box-shadow: none;
+                max-width: 100%;
+            }
+            h1, h2, h3 {
+                color: Black;
+                border: none;
+                text-shadow: none;
+                page-break-after: avoid;
+            }
+            h1 {
+                font-size: 22pt;
+            }
+            h2 {
+                font-size: 18pt;
+            }
+            table, th, td {
+                border: 1px solid Black;
+                font-size: 11pt;
+            }
+            th {
+                background-color: LightGray;
+                color: Black;
+            }
+            tr, td {
+                background-color: White !important; /* Override striping */
+                page-break-inside: avoid;
+            }
+            a {
+                text-decoration: none;
+                color: Black;
+            }
+            .dialogue {
+                background-color: #f4f4f4;
+                border-left: 5px solid #ccc;
+                color: #333;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <img src="banner.png" alt="Y-Diet & Habitome Banner">
+        </header>
+
+        <main>
+            <h1>உணவும் கோபமும்: உங்கள் கோபத்தை சந்தோஷமாக மாற்றும் "ஹெபிடோம்" ரகசியம்!</h1>
+            
+            <p class="author">ஆசிரியர்: Y-டயட் & ஹெபிடோம் ஆய்வுக் குழு</p>
+            
+            <blockquote class="dialogue">
+                <p>"ராகுல், ஏன் தட்டைத் தூக்கி எறிகிறாய்?"</p>
+                <p>"அம்மா, எத்தனை தடவை சொல்றது! இந்த பாகற்காய் குழம்பை வைக்காதீங்கன்னு! உப்பு கம்மியா இருக்கு, ஒரே கசப்பு!"</p>
+            </blockquote>
+
+            <p>இது போன்ற உரையாடல்கள் நமது வீடுகளில் மிகவும் சகஜம். "சாப்பாட்டில் உப்பு இல்லை", "சுவையே இல்லை", "காரம் தாங்க முடியல" – இப்படி உணவு சம்பந்தமான விஷயங்களுக்கு நாம் அடிக்கடி கோபப்படுகிறோம். (மேலும் முழுமையான <a href="table.html" class="highlight-link">கோபப்படும் பட்டியல் (Triggers list)</a> இங்கே காண்க).</p>
+            
+            <p>ஆனால், உங்கள் கோபத்திற்கு உண்மையான காரணம் அந்த பாகற்காயோ அல்லது உப்போ இல்லை என்று சொன்னால் நம்புவீர்களா? உங்கள் கோபத்திற்குப் பின்னால் ஒரு பெரிய அறிவியல் மற்றும் உளவியல் இருக்கிறது. அதைப்பற்றிப் புரிந்துகொள்ளத்தான் இந்த <strong>"ஹெபிடோம்" (Habitome)</strong> மற்றும் <strong>"Y-டயட்" (Y-Diet)</strong> நமக்கு உதவுகிறது.</p>
+
+            <h2>"ஹெபிடோம்" (Habitome) என்றால் என்ன?</h2>
+            
+            <p>"ஹெபிடோம்" என்ற வார்த்தையைப் பிரிக்கலாம்: <strong>Habit (பழக்கம்) + Home (இல்லம்) = Habitome (பழக்கங்களின் இல்லம்).</strong></p>
+            
+            <p>நமது வாழ்க்கை என்பது நாம் தினமும் செய்யும் ஆயிரக்கணக்கான சிறுசிறு பழக்கங்களால் கட்டப்பட்டது. காலையில் எழுந்ததும் பல் துலக்குவது, குறிப்பிட்ட வழியில் நடப்பது, டிவி பார்ப்பது போலவே, சின்னச் சின்ன விஷயங்களுக்கு கோபப்படுவதும் ஒரு பழக்கம்தான்!</p>
+            
+            <p>"ஹெபிடோம்" தத்துவத்தின்படி, உங்கள் கோபம் என்பது ஒரு தற்செயல் நிகழ்வு அல்ல; அது நீங்கள் பல நாட்களாகப் பயிற்சி செய்து, உங்கள் மூளையில் பதிந்து போன ஒரு <strong>பழக்கச் சுழற்சி (Habit Loop)</strong>.</p>
+
+            <h2>நாம் ஏன் உணவிற்காக கோபப்படுகிறோம்?</h2>
+            
+            <p>இரண்டு முக்கிய காரணங்கள் உள்ளன: ஒன்று உடலியல், மற்றொன்று பழக்கம்.</p>
+            
+            <h3>காரணம் 1: உடலின் வேதியியல் (The "Hangry" Monster)</h3>
+            
+            <p><em>"Hangry" என்றால் <strong>Hungry (பசி) + Angry (கோபம்) = பசிக் கோபம்.</strong></em></p>
+            
+            <p><strong>நவீன அறிவியல்:</strong> நீங்கள் காலை உணவாக இட்லி, தோசை, பூரி போன்ற மாவுச்சத்து (Carb) உணவுகளை மட்டும் சாப்பிடுகிறீர்கள் என்று வைத்துக்கொள்வோம். உங்கள் இரத்த சர்க்கரை (Blood Sugar) வேகமாக ஏறி, பின் மதிய உணவிற்கு முன்பே வேகமாகச் சரியும்.</p>
+            
+            <p><strong>என்ன நடக்கிறது?:</strong> இரத்தம் சர்க்கரை குறையும் போது, உங்கள் உடல் ஒரு அவசரநிலையைப் பிரகடனம் செய்கிறது. அது "கார்டிசோல்" மற்றும் "அட்ரினலின்" போன்ற மன அழுத்த ஹார்மோன்களை (Stress Hormones) வெளியிடுகிறது. இவை "சண்டையிடு அல்லது தப்பித்து ஓடு" ஹார்மோன்கள்.</p>
+            
+            <p><strong>விளைவு:</strong> இந்த ஹார்மோன்கள் உங்கள் உடலில் இருக்கும்போது, உங்கள் மூளையின் சிந்திக்கும் பகுதி (Prefrontal Cortex) சரியாக வேலை செய்யாது. அப்போது, உங்கள் மனைவி சாப்பாட்டில் உப்பு குறைவாகப் போட்டது என்ற சிறிய விஷயம் கூட, உங்கள் கண்ணுக்கு ஒரு பெரிய அச்சுறுத்தலாகத் தெரியும். உடனே கோபம் வெடிக்கும்.</p>
+            
+            <h3>காரணம் 2: பாரம்பரியப் பார்வை (பித்தச் சூடு)</h3>
+            
+            <p><strong>சித்த/ஆயுர்வேதம்:</strong> நமது பாரம்பரிய மருத்துவம் கோபத்தை <strong>"பித்தம்" (அழல்)</strong> அதிகரிப்பதன் அறிகுறி என்கிறது. பித்தம் என்றால் உடலின் "நெருப்பு" அல்லது "சூடு".</p>
+            
+            <p><strong>என்ன நடக்கிறது?:</strong> காபி, டீ, அதிக காரம், புளிப்பு, உப்பு (இவற்றை <em>ராஜச உணவுகள்</em> என்பார்கள்) போன்றவற்றை நாம் அதிகம் உட்கொள்ளும்போது, உடலின் பித்தம் (சூடு) அதிகரிக்கிறது.</p>
+            
+            <p><strong>விளைவு:</strong> உடலில் சூடு அதிகமாகும்போது, மனதில் பொறுமை குறைகிறது. ஒரு <em>சாத்வீக</em> (அமைதியான) நிலையில் இருப்பவர், "உப்பு கொஞ்சம் கம்மியா இருக்கு, போட்டுக்கலாம்" என்பார். ஆனால் <em>ராஜச</em> (கிளர்ச்சியான) நிலையில் இருப்பவர், தட்டையே தூக்கி எறிவார்.</p>
+
+            <h2>உங்கள் உணவு-கோபத் தூண்டுதல்கள் (Food-Anger Triggers)</h2>
+            
+            <p>நமது சமூகத்தில் உணவு தொடர்பான கோபத் தூண்டுதல்கள் எப்படி இருக்கின்றன என்று பார்ப்போம்:</p>
+
+            <table class="table-triggers">
+                <thead>
+                    <tr>
+                        <th>உணவின் நிலை (Food Condition)</th>
+                        <th>கோபத்திற்கான காரணம் (Reason for Anger)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="உணவின் நிலை"><strong>உப்பு அதிகம்</strong></td>
+                        <td data-label="கோபத்திற்கான காரணம்">உணவை வீணடித்து விட்டார்கள், ஆரோக்கியக் கேடு, கவனக்குறைவு என்ற கோபம்.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="உணவின் நிலை"><strong>உப்பு குறைவு</strong></td>
+                        <td data-label="கோபத்திற்கான காரணம்">"உப்புப் போட்டு சாப்பிடத் தெரியாதா?", சுவையற்ற உணவு, கவனக்குறைவு.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="உணவின் நிலை"><strong>காரம் அதிகம் / குறைவு</strong></td>
+                        <td data-label="கோபத்திற்கான காரணம்">"சாப்பிடவே முடியவில்லை", "சப்பென்று இருக்கிறது" - இது <em>ரஜஸ்</em> குணத்தின் நேரடி வெளிப்பாடு.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="உணவின் நிலை"><strong>சுவையற்ற உணவு</strong></td>
+                        <td data-label="கோபத்திற்கான காரணம்">சமைத்ததில் திருப்தி இல்லை, "சாப்பிட்ட திருப்தியே இல்லை" என்ற மனக்குறை.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="உணவின் நிலை"><strong>பிடிக்காத உணவு (உ.ம்: பாகற்காய்)</strong></td>
+                        <td data-label="கோபத்திற்கான காரணம்">கசப்புச் சுவையை ஏற்க மறுக்கும் மனநிலை. திருப்தியின்மை.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="உணவின் நிலை"><strong>குளிர்ந்து போன உணவு</strong></td>
+                        <td data-label="கோபத்திற்கான காரணம்">"சூடாகப் பரிமாறத் தெரியாதா?", மதிக்கவில்லை என்ற உணர்வு.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="உணவின் நிலை"><strong>நேரத்திற்கு உணவு இல்லை</strong></td>
+                        <td data-label="கோபத்திற்கான காரணம்">பசி (Hangry) உச்சத்தை அடைந்து, உடலியல் ரீதியாக கோபம் வெடித்தல்.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>கோபத்தை எப்படி "கரைப்பது"? - Y-டயட் & "ஸ்மார்ட் ஸ்வாப்"</h2>
+            
+            <p>கோபத்தைக் <strong>"கட்டுப்படுத்த" (Control)</strong> முயற்சிப்பது, ஒரு நீரூற்றை கையால் அழுத்தி மூடுவது போன்றது. சிறிது நேரத்தில் அது வேறு இடத்தில் பீறிட்டு வரும் (அழுத்தம், நோய், உறவுச் சிக்கல்).</p>
+            
+            <p>ஆனால் "ஹெபிடோம்" மற்றும் "Y-டயட்", கோபத்தை <strong>"கரைக்க" (Dissolve)</strong> பரிந்துரைக்கிறது. அதாவது, கோபம் உருவாவதற்கான வேர்க்காரணங்களையே மாற்றுவது.</p>
+            
+            <p>இதைச் செய்ய, நாம் உணவின் மீதான நமது <em>எதிர்வினையை</em> (Reaction) மாற்றுவதற்குப் பதிலாக, நமது <em>உடலின் இயல்பு நிலையையே</em> (Default State) மாற்ற வேண்டும்.</p>
+            
+            <p><strong>Y-டயட் (Y-Diet):</strong> இது ஒரு உணவுமுறை (Diet) அல்ல, இது ஒரு <em>சாத்வீக வாழ்க்கை முறை (Sattvic Way of Life)</em>. அதாவது, உடலையும் மனதையும் அமைதியாக, தெளிவாக, ஆற்றலுடன் வைத்திருக்கும் உணவுகளை உண்பது.</p>
+            
+            <p><strong>ஸ்மார்ட் ஸ்வாப் (Smart Swap):</strong> இது Y-டயட் வாழ்க்கை முறைக்கு மாறுவதற்கான ஒரு எளிய, புத்திசாலித்தனமான வழி. இந்த முறையில், நீங்கள் எதையும் <em>நிறுத்தத்</em> தேவையில்லை (Stop), பதிலாக ஒன்றை இன்னொன்றாக <em>மாற்றினால்</em> (Swap) போதும்.</p>
+            
+            <h2>உங்கள் கோபத்தைக் கரைக்கும் 5 Y-டயட் "ஸ்மார்ட் ஸ்வாப்ஸ்"</h2>
+            
+            <p>உங்கள் தினசரி கோபப் பழக்கங்களை, Y-டயட் எப்படி புத்திசாலித்தனமாக மாற்றுகிறது என்று பார்ப்போம்:</p>
+
+            <table class="table-swaps">
+                <thead>
+                    <tr>
+                        <th>கோபத்தை தூண்டும் பழைய பழக்கம் (Old Habit)</th>
+                        <th>புதிய சாத்வீக "Y-டயட் ஸ்வாப்" (New Sattvic Y-Diet Swap)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="பழைய பழக்கம்">
+                            <strong>Swap 1: இரத்த சர்க்கரை ஏற்ற இறக்கம்</strong><br>
+                            காலை உணவாக வெறும் இட்லி, தோசை, பூரி (High Carb) மட்டும் சாப்பிடுவது. இது மதியம் பசி-கோபத்தை (Hangry) உருவாக்கும்.
+                        </td>
+                        <td data-label="புதிய Y-டயட் ஸ்வாப்">
+                            <strong>இரத்த சர்க்கரையை சமநிலைப்படுத்துதல்</strong><br>
+                            காலை உணவில் புரதம் மற்றும் நார்ச்சத்து சேர்த்தல்.<br>
+                            <strong>உதாரணம்:</strong> 2 இட்லியுடன், ஒரு கப் அவித்த <strong>சிறுபயிறு சுண்டல்</strong> அல்லது <strong>முளைகட்டிய பயறு</strong> சாலட். இது நாள் முழுவதும் உங்கள் மனநிலையை சமமாக வைத்திருக்கும்.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="பழைய பழக்கம்">
+                            <strong>Swap 2: பித்தம் அதிகரிக்கும் பானங்கள்</strong><br>
+                            பசி வயிற்றிலும், கோபத்திலும் அடிக்கடி காபி அல்லது டீ குடிப்பது. இது பித்தத்தை (கோபத்தை) மேலும் தூண்டும்.
+                        </td>
+                        <td data-label="புதிய Y-டயட் ஸ்வாப்">
+                            <strong>பித்தத்தைச் சமன்படுத்துதல் (Pitta Pacifying)</strong><br>
+                            கோபம் அல்லது எரிச்சல் வரும்போது, அதற்குப் பதிலாக <strong>மோர் (Buttermilk)</strong>, <strong>இளநீர்</strong> அல்லது <strong>புதினா-கொத்தமல்லி சாறு</strong> குடிப்பது. இது உடலின் உஷ்ணத்தைக் குறைத்து மனதை உடனடியாக அமைதிப்படுத்தும்.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="பழைய பழக்கம்">
+                            <strong>Swap 3: சுவைக்கான ராஜச எதிர்பார்ப்பு</strong><br>
+                            சுவை என்றால் காரம், உப்பு, புளிப்பு மட்டுமே (Rajasic Taste) என எதிர்பார்ப்பது. பாகற்காய் போன்ற (கசப்பு) சுவையை முற்றிலும் நிராகரித்தல்.
+                        </td>
+                        <td data-label="புதிய Y-டயட் ஸ்வாப்">
+                            <strong>அறுசுவையை (Aru-suvai) ஏற்றுக்கொள்தல்</strong><br>
+                            Y-டயட் அறுசுவையையும் சமமாகப் பார்க்கிறது. கசப்பு, துவர்ப்பு போன்றவை உடலுக்குத் தேவையானவை. கசப்பை (பாகற்காய்) வெறுக்காமல், அதை சமன்படுத்த <strong>சிறிது வெல்லம்/தேன்</strong> சேர்த்து சமைக்கலாம்.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="பழைய பழக்கம்">
+                            <strong>Swap 4: கோபமான எதிர்வினை (The Habitual Reaction)</strong><br>
+                            சுவை பிடிக்காதவுடன் உடனடியாக கத்துவது அல்லது எதிர்வினையாற்றுவது (Reacting).
+                        </td>
+                        <td data-label="புதிய Y-டயட் ஸ்வாப்">
+                            <strong>"ஒரு மிடறு" விதி (The "One-Sip" Rule)</strong><br>
+                            உணவு பிடிக்கவில்லை என்று உணர்ந்தவுடன், கோபப்படுவதற்கு முன், ஒரு மிடறு <strong>தண்ணீர்</strong> அல்லது <strong>மோர்</strong> குடியுங்கள். இந்த சிறிய இடைவெளி (Pause), உங்கள் பழக்கச் சுழற்சியை (Habit Loop) உடைக்கும். உங்கள் மூளையின் சிந்திக்கும் பகுதிக்கு கட்டுப்பாட்டைத் திரும்பக் கொடுக்கும்.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="பழைய பழக்கம்">
+                            <strong>Swap 5: சுவையற்ற உணவின் மீதான கோபம்</strong><br>
+                            சப்பென்ற (Neutral Taste) உணவுகளை (ஆவியில் அவித்த காய்கறிகள்) "நோயாளியின் உணவு" என ஒதுக்குவது.
+                        </td>
+                        <td data-label="புதிய Y-டயட் ஸ்வாப்">
+                            <strong>இயற்கையான சுவையை மதித்தல்</strong><br>
+                            சுவைக்காக அதிக உப்பு/காரத்தை நம்புவதைக் குறைத்து, <strong>சீரகம், மிளகு, இஞ்சி, மஞ்சள், நெய்</strong> போன்ற <em>சாத்வீக</em> சுவையூட்டிகளைப் பயன்படுத்துங்கள். இது சுவை நரம்புகளை அமைதிப்படுத்தி, இயற்கையான திருப்தியைத் தரும்.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>முடிவுரை</h3>
+            
+            <p>நண்பர்களே, உங்கள் கோபம் பாகற்காயிலோ அல்லது உப்பிலோ இல்லை. அது உங்கள் உடலின் சமநிலையற்ற நிலையிலும் (High Pitta / Low Blood Sugar) அதை வெளிப்படுத்தும் உங்கள் பழக்கத்திலும்தான் (Habitome) உள்ளது.</p>
+            
+            <p>Y-டயட் "ஸ்மார்ட் ஸ்வாப்" மூலம், உங்கள் உடலின் இயல்பு நிலையையே <em>சாத்வீக</em> நிலைக்கு (Sattvic State) மாற்றும்போது, கோபம் என்ற உணர்ச்சி தானாகவே கரைந்துவிடும். அதன் பிறகு, உப்பு குறைந்தாலும், பாகற்காய் வந்தாலும், உங்களால் அமைதியாக, அன்பாக அதை அணுக முடியும்.</p>
+            
+            <p><strong>சாப்பாட்டையும் ரசியுங்கள், வாழ்க்கையையும் ரசியுங்கள்!</strong></p>
+
+        </main>
+
+        <footer>
+            <p><strong>Y2Z Life Systems (Y-Diet Project)</strong></p>
+            <p>இங்கு பகிரப்படுபவை பொதுக் கல்விக்கான வழிகாட்டுதல்கள். உங்கள் உடல்நிலைக்கு ஏற்ற உணவு முறை மற்றும் பழக்கவழக்கங்களை அறிய, விரைவில் வெளிவரும் Y2Z-ன் 'Personalized Lifestyle and Diet Pattern' திட்டத்தைப் பயன்படுத்தலாம்.</p>
+            <p>இது ஒரு தனிமனித, சமூக, தொழில்முறை மற்றும் ஆன்மிக மேம்பாட்டை ஒருங்கிணைந்த சுய-கற்றல் அமைப்பு (Self-Learning Integrated System).</p>
+            <p>© 2025 Y2Z Life Systems</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
